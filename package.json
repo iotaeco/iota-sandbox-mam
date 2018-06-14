@@ -1,0 +1,25 @@
+{
+    "name": "iota-sandbox-mam",
+    "version": "1.0.0",
+    "description": "Sandbox for experimenting with iota.lib.js and mam.client.js",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html"
+    },
+    "dependencies": {
+        "curl.lib.js": "iotaeco/curl.lib.js.git",
+        "iota.lib.js": "^0.4.7",
+        "mam.client.js": "iotaledger/mam.client.js.git"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.8.1"
+    },
+    "keywords": [
+        "iota",
+        "tangle",
+        "curl",
+        "proof-of-work",
+        "mam"
+    ]
+}
