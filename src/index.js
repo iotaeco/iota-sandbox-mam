@@ -29,10 +29,9 @@ if (!seed) {
 let mamState = Mam.init(iota, seed);
 const initialRoot = Mam.getRoot(mamState);
 
-const channelMode = "public" // "private" "restricted"
-const retrictedSideKeyTrytes = channelMode == "restricted" ? "THIS9IS9A9RESTRICTED9KEY" : undefined;
-
 // Set the channel mode
+const channelMode = "public" // "private" "restricted"
+const retrictedSideKeyTrytes = channelMode === "restricted" ? "THIS9IS9A9RESTRICTED9KEY" : undefined;
 console.log("Channel Mode", channelMode);
 mamState = Mam.changeMode(mamState, channelMode, retrictedSideKeyTrytes);
 
