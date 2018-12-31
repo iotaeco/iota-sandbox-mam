@@ -10,7 +10,7 @@
     "dependencies": {
         "@iota/core": "^1.0.0-beta.8",
         "curl.lib.js": "iotaeco/curl.lib.js",
-        "mam.client.js": "obany/mam.client.js"
+        "mam.client.js": "obany/mam.client.js#fix_bundle_sorting"
     },
     "devDependencies": {
         "parcel-bundler": "^1.8.1"
