@@ -1,7 +1,7 @@
 {
     "name": "iota-sandbox-mam",
-    "version": "1.0.1",
-    "description": "Sandbox for experimenting with iota.lib.js and mam.client.js",
+    "version": "1.0.2",
+    "description": "Sandbox for experimenting with iota.js and mam.client.js",
     "main": "index.html",
     "scripts": {
         "start": "parcel index.html --open",
@@ -9,7 +9,6 @@
     },
     "dependencies": {
         "@iota/core": "^1.0.0-beta.8",
-        "curl.lib.js": "iotaeco/curl.lib.js",
         "mam.client.js": "obany/mam.client.js"
     },
     "devDependencies": {
