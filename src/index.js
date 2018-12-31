@@ -35,7 +35,10 @@ function publishMessage(mamState, trytesMessage) {
     // Attach the payload
     console.log("Attaching payload, please wait...")
     return Mam.attach(message.payload, message.address, attachDepth, attachMwm)
-        .then(() => message);
+        .then(() => message)
+        .catch((err) => {
+            console.error("There was an error attaching the message", err)
+        });
 }
 
 // Fetch message beginning at the specific root.
@@ -75,9 +78,6 @@ fetchMessages(Mam.getRoot(mamState))
                         console.log("You can view the transactions for this this message at", `${explorer}/address/${message.address}`);
                     }
                     fetchMessages(message.root);
-                })
-                .catch((err) => {
-                    console.error("There was an error publishing the message", err)
                 });
         }
     });

@@ -1,6 +1,6 @@
 {
     "name": "iota-sandbox-mam",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Sandbox for experimenting with iota.js and mam.client.js",
     "main": "index.html",
     "scripts": {
