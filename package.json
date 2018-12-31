@@ -8,8 +8,9 @@
         "build": "parcel build index.html"
     },
     "dependencies": {
+        "@iota/core": "^1.0.0-beta.8",
         "curl.lib.js": "iotaeco/curl.lib.js.git",
-        "iota.lib.js": "^0.4.7",
+        "iota.lib.js": "^0.5.1",
         "mam.client.js": "obany/mam.client.js.git#fix_bundle_sorting"
     },
     "devDependencies": {
@@ -21,6 +22,5 @@
         "curl",
         "proof-of-work",
         "mam"
-
     ]
 }
