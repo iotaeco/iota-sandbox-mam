@@ -44,11 +44,15 @@ function fetchMessages(messageRoot) {
 
     return Mam.fetch(messageRoot, channelMode, retrictedSideKeyTrytes)
         .then(response => {
-            response.messages.forEach(messageTrytes => {
-                console.log("Fetched Message", trytesToAscii(messageTrytes));
-            });
-            console.log("Next Root", response.nextRoot);
-            return response;
+            if (response) {
+                response.messages.forEach(messageTrytes => {
+                    console.log("Fetched Message", trytesToAscii(messageTrytes));
+                });
+                console.log("Next Root", response.nextRoot);
+                return response;
+            } else {
+                console.error("Unable to fetch messages.")
+            }
         });
 }
 
@@ -58,20 +62,22 @@ function fetchMessages(messageRoot) {
 // the tree just to publish a message.
 fetchMessages(Mam.getRoot(mamState))
     .then((messageResponse) => {
-        mamState.channel.start = messageResponse.messages.length;
+        if (messageResponse) {
+            mamState.channel.start = messageResponse.messages.length;
 
-        publishMessage(mamState, asciiToTrytes(`This is my message ${messageResponse.messages.length + 1}`))
-            .then((message) => {
-                console.log("Message Published");
-                if (channelMode === "public") {
-                    console.log("You can view the message chain on the tangle", `${explorer}/mam/${initialRoot}`);
-                    console.log("or just for this message at", `${explorer}/mam/${message.address}`);
-                } else {
-                    console.log("You can view the transactions for this this message at", `${explorer}/address/${message.address}`);
-                }
-                fetchMessages(message.root);
-            })
-            .catch((err) => {
-                console.error("There was an error publishing the message", err)
-            });
+            publishMessage(mamState, asciiToTrytes(`This is my message ${messageResponse.messages.length + 1}`))
+                .then((message) => {
+                    console.log("Message Published");
+                    if (channelMode === "public") {
+                        console.log("You can view the message chain on the tangle", `${explorer}/mam/${initialRoot}`);
+                        console.log("or just for this message at", `${explorer}/mam/${message.address}`);
+                    } else {
+                        console.log("You can view the transactions for this this message at", `${explorer}/address/${message.address}`);
+                    }
+                    fetchMessages(message.root);
+                })
+                .catch((err) => {
+                    console.error("There was an error publishing the message", err)
+                });
+        }
     });
