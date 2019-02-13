@@ -54,9 +54,13 @@ async function fetchMessages(messageRoot) {
         const response = await Mam.fetch(messageRoot, channelMode, retrictedSideKeyTrytes);
 
         if (response) {
-            response.messages.forEach(messageTrytes => {
-                logOutput(`Fetched Message: ${trytesToAscii(messageTrytes)}`);
-            });
+            if (!response.messages || response.message.length === 0) {
+                logOutput("There are no messages.")
+            } else {
+                response.messages.forEach(messageTrytes => {
+                    logOutput(`Fetched Message: ${trytesToAscii(messageTrytes)}`);
+                });
+            }
             logOutput(`Next Root: ${response.nextRoot}`);
         }
         return response;
@@ -66,9 +70,8 @@ async function fetchMessages(messageRoot) {
 }
 
 
-
 // Get the current messages from the root to find the start count
-// to publish the new message. You could store the start count
+// to publish the new message. You could store the start count/mam state
 // somewhere else and load it here to avoid having to walk
 // the tree just to publish a message.
 (async function () {
