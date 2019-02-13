@@ -9,7 +9,7 @@ const attachMwm = 14; // Use 9 for devnet
 const explorer = "https://thetangle.org" // use https://devnet.thetangle.org for devnet;
 
 // Initialise Mam, if you fork the sandbox you should change the seed
-clearOutput("Initializing Mam");
+clearOutput();
 logOutput("Initializing Mam");
 // Create a 81 trytes seed if you want to show previous messages in your mam stream
 const seed = undefined;
