@@ -16,8 +16,7 @@
     "keywords": [
         "iota",
         "tangle",
-        "curl",
-        "proof-of-work",
-        "mam"
+        "MAM",
+        "mam.client.js"
     ]
 }
