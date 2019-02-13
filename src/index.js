@@ -54,7 +54,7 @@ async function fetchMessages(messageRoot) {
         const response = await Mam.fetch(messageRoot, channelMode, retrictedSideKeyTrytes);
 
         if (response) {
-            if (!response.messages || response.message.length === 0) {
+            if (!response.messages || response.messages.length === 0) {
                 logOutput("There are no messages.")
             } else {
                 response.messages.forEach(messageTrytes => {
