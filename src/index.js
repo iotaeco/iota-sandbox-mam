@@ -79,7 +79,7 @@ async function fetchMessages(messageRoot) {
             mamState.channel.start = messageResponse.messages.length;
 
             const message = await publishMessage(mamState, asciiToTrytes(`This is my message ${messageResponse.messages.length + 1}`));
-            console.log(message);
+
             logOutput("Message Published");
             if (channelMode === "public") {
                 logOutput(`You can view the message chain on the tangle:`);
