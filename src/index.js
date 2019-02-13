@@ -1,5 +1,5 @@
 const { asciiToTrytes, trytesToAscii } = require("@iota/converter");
-const Mam = require('mam.client.js');
+const Mam = require('../lib/mam.client.js');
 
 const provider = "https://nodes.thetangle.org:443";
 const attachDepth = 3;
