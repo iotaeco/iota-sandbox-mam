@@ -1,7 +1,7 @@
 require('regenerator-runtime/runtime');
 const { logOutput, logError, logLink, clearOutput } = require("./output.js");
 const { asciiToTrytes, trytesToAscii } = require("@iota/converter");
-const Mam = require('../lib/mam.client.js');
+const Mam = require('@iota/mam');
 
 const provider = "https://nodes.thetangle.org:443";
 const attachDepth = 3;
@@ -11,10 +11,10 @@ const explorer = "https://thetangle.org" // use https://devnet.thetangle.org for
 // Initialise Mam, if you fork the sandbox you should change the seed
 clearOutput();
 logOutput("Initializing Mam");
-// Create a 81 trytes seed if you want to show previous messages in your mam stream
+// Create a 81 trytes seed if you want to show previous messages in your mam channel
 const seed = undefined;
 if (!seed) {
-    logError("As you have not populated an 81 tryte seed you will never get more than one message in your mam stream");
+    logError("As you have not populated an 81 tryte seed you will never get more than one message in your mam channel");
 }
 let mamState = Mam.init(provider, seed);
 const initialRoot = Mam.getRoot(mamState);

@@ -1,14 +1,15 @@
 {
     "name": "iota-sandbox-mam",
-    "version": "1.1.0",
-    "description": "Sandbox for experimenting with mam.client.js",
+    "version": "1.1.1",
+    "description": "Sandbox for experimenting with @iota/mam",
     "main": "index.html",
     "scripts": {
         "start": "parcel index.html --open",
         "build": "parcel build index.html"
     },
     "dependencies": {
-        "@iota/core": "^1.0.0-beta.8"
+        "@iota/core": "^1.0.0-beta.8",
+        "@iota/mam": "^0.6.0"
     },
     "devDependencies": {
         "parcel-bundler": "^1.8.1"
@@ -17,6 +18,7 @@
         "iota",
         "tangle",
         "MAM",
-        "mam.client.js"
+        "mam.client.js",
+        "@iota/mam"
     ]
 }
