@@ -79,9 +79,9 @@ async function fetchMessages(messageRoot) {
         const messageResponse = await fetchMessages(Mam.getRoot(mamState))
 
         if (messageResponse) {
-            mamState.channel.start = messageResponse.messages.length;
+            mamState.channel.start = messageResponse.messages ? messageResponse.messages.length : 0;
 
-            const message = await publishMessage(mamState, asciiToTrytes(`This is my message ${messageResponse.messages.length + 1}`));
+            const message = await publishMessage(mamState, asciiToTrytes(`This is my message ${mamState.channel.start + 1}`));
 
             logOutput("Message Published");
             if (channelMode === "public") {
